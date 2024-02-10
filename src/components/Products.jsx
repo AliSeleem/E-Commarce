@@ -28,12 +28,12 @@ const Products = () => {
     , [])
 
     useEffect( () => {
-      window.addEventListener("resize",()=>{
+      
         if( window.innerWidth > '992') setSize("col-3");
         else if(window.innerWidth > 762) setSize("col-6");
         else setSize("col-12");
     
-      })}
+      }
     , [window.innerWidth])
     
   return (
