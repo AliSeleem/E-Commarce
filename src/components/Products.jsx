@@ -32,7 +32,7 @@ const Products = () => {
         else setSize("col-12");
     
       })}
-    , [])
+    , )
     
   return (
     <>
