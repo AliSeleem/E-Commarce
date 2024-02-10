@@ -4,7 +4,7 @@ import Product from './Product';
 const Products = () => {
     const [productList, setProductList] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [size, setSize] = useState("col-3");
+    const [size, setSize] = useState("");
 
     const getCat = (cat) => {
       fetch(`https://fakestoreapi.com/products/category/${cat}`)
@@ -24,15 +24,17 @@ const Products = () => {
       .then(res=>res.json())
       .then(json=>setCategories(json))
 
-      getCat();
+      getCat();}
+    , [])
 
+    useEffect( () => {
       window.addEventListener("resize",()=>{
         if( window.innerWidth > '992') setSize("col-3");
         else if(window.innerWidth > 762) setSize("col-6");
         else setSize("col-12");
     
       })}
-    , )
+    , [window.innerWidth])
     
   return (
     <>
